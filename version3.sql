@@ -54,9 +54,9 @@ FROM Authors
         SELECT publisher_name AS name, 'Publisher' AS type
         FROM Publishers;
 SELECT reader_name, registration_date, 'Before 2020' AS category
-        FROM Readers
+FROM Readers
         WHERE registration_date < '2020-01-01'
         UNION ALL
 SELECT reader_name, registration_date, 'After 2020' AS category
-        FROM Readers
+FROM Readers
         WHERE registration_date >= '2020-01-01';
