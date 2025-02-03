@@ -47,16 +47,16 @@ FROM Readers reader
          FULL OUTER JOIN Books book ON borrowed_b.book_id = book.book_id;
 
 COMMENT ON TABLE Books IS 'JOIN';
+
 SELECT author_name AS name, 'Author' AS type
 FROM Authors
-UNION ALL
-SELECT publisher_name AS name, 'Publisher' AS type
-FROM Publishers;
-
+        UNION ALL
+        SELECT publisher_name AS name, 'Publisher' AS type
+        FROM Publishers;
 SELECT reader_name, registration_date, 'Before 2020' AS category
-FROM Readers
-WHERE registration_date < '2020-01-01'
-UNION ALL
+        FROM Readers
+        WHERE registration_date < '2020-01-01'
+        UNION ALL
 SELECT reader_name, registration_date, 'After 2020' AS category
-FROM Readers
-WHERE registration_date >= '2020-01-01';
+        FROM Readers
+        WHERE registration_date >= '2020-01-01';
